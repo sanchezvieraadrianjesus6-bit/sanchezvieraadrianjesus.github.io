@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adrián Sánchez Viera · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b10; --panel:#12131a; --line:#262833; --text:#eef0f6; --muted:#a6a9b8;
+  --accent:#ff6a1f; --accent2:#e8392b; --accent-ink:#0a0b10; --lime:#3fd8e8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--text)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Barlow Condensed',Inter,sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:0;margin:0;line-height:1}
+h3{font-size:22px}
+h2{font-size:clamp(38px,5vw,60px);margin-bottom:30px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+.eyebrow::before{content:'';display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:10px;vertical-align:1px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:rgba(12,12,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:24px;text-transform:uppercase;text-decoration:none}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500}
+nav ul a:hover{color:var(--text)}
+@media(max-width:720px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:96px 0 88px;border-top:0}
+.hero h1{font-size:clamp(52px,9vw,112px);line-height:.95;max-width:12ch}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{background:radial-gradient(60% 80% at 85% 20%,rgba(232,57,43,.14),transparent 70%),radial-gradient(50% 70% at 10% 90%,rgba(255,106,31,.10),transparent 70%)}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:60ch;margin:26px 0 34px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
+.chip b{color:var(--lime);font-weight:600}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;font-family:'JetBrains Mono',monospace;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.btn{font-family:'JetBrains Mono',monospace;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.btn:hover{filter:brightness(1.08)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.about p{color:var(--muted);margin:0 0 16px}
+.about p strong{color:var(--text)}
+.facts{display:grid;gap:12px;align-content:start}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.fact .n{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:44px;line-height:1;color:var(--accent)}
+.fact .l{color:var(--muted);font-size:14px}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.cover{height:210px;position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.cover svg{width:100%;height:100%;display:block}
+.card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:19px}
+.card .kind{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--lime);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card ul{margin:4px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:4px 9px;border-radius:4px;border:1px solid rgba(63,216,232,.45);color:var(--lime);text-transform:uppercase}
+.card .link{font-size:14px;color:var(--accent);text-decoration:none;font-weight:600;margin-top:4px}
+.card .link:hover{text-decoration:underline}
+
+/* featured + shots */
+.cover img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.feature{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr}
+.feature .cover{height:auto;min-height:340px;border-bottom:0;border-right:1px solid var(--line)}
+.feature .cover img{object-position:42% top}
+.feature .body{padding:32px;justify-content:center}
+.feature h3{font-size:34px}
+@media(max-width:820px){.feature{grid-template-columns:1fr}.feature .cover{min-height:220px;border-right:0;border-bottom:1px solid var(--line)}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px;background:#0d0d12;max-height:520px}
+.duo img{object-fit:cover;object-position:top;border-radius:8px;height:100%;min-height:0}
+.real{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(10,11,16,.8);border:1px solid var(--line);color:var(--text);padding:4px 8px;border-radius:4px}
+
+/* edu */
+.timeline{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:20px 24px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.row .when{font-family:'JetBrains Mono',monospace;color:var(--lime);font-weight:500;font-size:13px}
+.row h3{font-family:Inter,sans-serif;font-style:normal;text-transform:none;line-height:1.35;font-size:17px;font-weight:600;margin-bottom:4px}
+.row p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:640px){.row{grid-template-columns:1fr;gap:6px}}
+.sub{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:30px;margin:44px 0 16px;color:var(--text)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:960px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.skill h3{font-size:24px;margin-bottom:14px;color:var(--accent)}
+.skill ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;color:var(--muted);font-size:14.5px}
+
+/* contact */
+.contact{text-align:center;padding:110px 0 120px}
+.contact h2{font-size:clamp(56px,9vw,110px);margin-bottom:18px}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 30px}
+.contact .mail{font-size:clamp(16px,2.2vw,22px);font-weight:600;word-break:break-all}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#inicio">Adrián<span>.</span></a>
+    <ul>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio · Diseño gráfico e interactivo</div>
+    <h1>Diseño visual para <em>experiencias</em> interactivas.</h1>
+    <p class="lead">Soy Adrián Jesús Sánchez Viera. Diseño identidades, interfaces y piezas gráficas para webs, videojuegos y comunidades online, y las llevo a la web, al juego o a Discord.</p>
+    <div class="chips">
+      <span class="chip">Fuerteventura, Canarias</span>
+      <span class="chip"><b>●</b> Disponible · incorporación inmediata</span>
+      <span class="chip">Trabajo en remoto con equipo propio</span>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="#contacto">Contactar</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre-mi">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">Sobre mí</div>
+      <h2>De la idea a algo publicado.</h2>
+      <p>Llevo dos años creando proyectos digitales propios bajo mi marca <strong>Unbound</strong>: webs, una tienda online, interfaces para servidores de rol y la imagen de varias comunidades de Discord. Me encargo de todo el recorrido: la identidad visual, el diseño de la interfaz y que el resultado funcione y esté publicado.</p>
+      <p>Me he formado en <strong>creación de videojuegos con Unity 3D</strong> (UI, partículas, post-procesado, Shader Graph, animación y realidad aumentada para móvil) y en diseño gráfico. Me interesa especialmente el diseño para entornos 3D, VR y AR, donde la interfaz forma parte de la experiencia.</p>
+      <p>Vengo también de la atención al cliente y la venta digital, así que sé escuchar lo que se necesita, aplicar cambios a partir del feedback y cumplir plazos.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="n">150 h</div><div class="l">de formación certificada en Unity 3D (niveles 3–6)</div></div>
+      <div class="fact"><div class="n">2 años</div><div class="l">creando y gestionando comunidades y proyectos digitales propios</div></div>
+      <div class="fact"><div class="n">5</div><div class="l">proyectos con identidad visual propia, publicados o en desarrollo</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="eyebrow">Proyectos</div>
+    <h2>Trabajo seleccionado</h2>
+    <div class="grid">
+
+      <article class="card feature">
+        <div class="cover"><img src="unbound.webp" alt="Página principal de unboundjs.cc: titular 'Revisa tus recursos antes de que rompan el servidor' con un coche en wireframe naranja"><span class="real">Captura real</span></div>
+        <div class="body">
+          <div class="kind">Marca · Web · Herramienta online</div>
+          <h3>Unbound — identidad y web</h3>
+          <p>Mi marca y su web oficial: herramientas online para revisar, optimizar y convertir recursos de FiveM, con usuarios de todo el mundo.</p>
+          <ul>
+            <li>Identidad propia: titulares condensados en cursiva, degradado naranja-rojo, detalles en cian y etiquetas tipo terminal</li>
+            <li>Web bilingüe (ES / EN), adaptada a móvil, con inicio de sesión con Discord y planes de suscripción</li>
+            <li>Ilustración de producto animada (escáner sobre un coche en wireframe)</li>
+            <li>Publicada en servidor propio con dominio en Cloudflare</li>
+          </ul>
+          <div class="tags"><span class="tag">Branding</span><span class="tag">UI web</span><span class="tag">Responsive</span><span class="tag">HTML/CSS/JS</span></div>
+          <a class="link" href="https://unboundjs.cc">unboundjs.cc →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover"><img src="market.webp" alt="Página principal de Unbound Market: titular 'Lo que todo el mundo está comprando esta semana' y carrusel de productos"><span class="real">Captura real</span></div>
+        <div class="body">
+          <div class="kind">E-commerce · Marca</div>
+          <h3>Unbound Market — tienda online</h3>
+          <p>Tienda de productos con envío a todo el mundo, que amplía la marca Unbound a un público general.</p>
+          <ul>
+            <li>Misma identidad visual llevada a un contexto de comercio</li>
+            <li>Buscador, selector de idioma y moneda, y carrito</li>
+            <li>Escaparate de tendencias con carrusel de productos</li>
+          </ul>
+          <div class="tags"><span class="tag">E-commerce</span><span class="tag">UI/UX</span><span class="tag">Extensión de marca</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover"><img src="shop.webp" alt="Página principal de UnboundShop: titular 'Equipa tu servidor con recursos que no fallan' y buscador del catálogo" style="object-position:30% top"><span class="real">Captura real</span></div>
+        <div class="body">
+          <div class="kind">E-commerce · UI</div>
+          <h3>UnboundShop — tienda de recursos digitales</h3>
+          <p>Tienda online para vender mapeados, scripts y vehículos para FiveM, con la misma estética de la marca.</p>
+          <ul>
+            <li>Catálogo por categorías (mapeados, scripts, vehículos) con buscador</li>
+            <li>Recursos revisados con el escáner de Unbound antes de publicarse</li>
+            <li>Panel de administración para subir productos</li>
+            <li>Compra y descarga desde la tienda, con aviso de cada venta en Discord</li>
+          </ul>
+          <div class="tags"><span class="tag">UI/UX</span><span class="tag">Panel admin</span><span class="tag">Pagos PayPal</span></div>
+          <a class="link" href="https://shop.unboundjs.cc">shop.unboundjs.cc →</a>
+        </div>
+      </article>
+
+      <article class="card feature">
+        <div class="cover"><img src="redm-banner.webp" alt="Banner de Unbound RP, Est. 1915: pueblo del oeste con letrero metálico"><span class="real">Banner real</span></div>
+        <div class="body">
+          <div class="kind">Identidad de época · Escenarios</div>
+          <h3>Unbound RP 1915 — servidor de RedM</h3>
+          <p>Un segundo servidor de rol ambientado en 1915, con una identidad visual completamente distinta: tipografía y materiales de principios de siglo.</p>
+          <ul>
+            <li>Banner y logotipo de época (Est. 1915)</li>
+            <li>Interfaces propias con estilo 1915</li>
+            <li>Diseño de escenarios: fábrica de vehículos con cadena de montaje</li>
+          </ul>
+          <div class="tags"><span class="tag">Branding</span><span class="tag">Dirección de arte</span><span class="tag">Escenarios 3D</span></div>
+        </div>
+      </article>
+
+      <article class="card feature">
+        <div class="cover duo"><img src="sanctuary-embed.webp" alt="Mensaje de bienvenida de The Midnight Sanctuary con banner gótico y texto decorado"><img src="redm-embed.webp" alt="Mensaje de verificación de Unbound RP con banner de 1915 y botón Verificarme"><span class="real">Capturas reales</span></div>
+        <div class="body">
+          <div class="kind">Comunidades · Gráfica social · Bots</div>
+          <h3>Comunidades de Discord</h3>
+          <p>Diseño la imagen, los textos y la experiencia de entrada de cada comunidad, adaptando el tono a su estética.</p>
+          <ul>
+            <li><strong style="color:var(--text)">The Midnight Sanctuary (NOCTELLE)</strong>: estética gótica, banner, bienvenida automática con mención al nuevo miembro y texto ambientado</li>
+            <li><strong style="color:var(--text)">Unbound RP 1915</strong>: verificación con botón y código, explicada en tres pasos claros, con la identidad de época</li>
+            <li><strong style="color:var(--text)">Unbound Script</strong>: comunidad de la marca, canales con tipografía estilizada</li>
+            <li>Bots propios en Node.js: bienvenida, verificación, tickets y música</li>
+          </ul>
+          <div class="tags"><span class="tag">Banners</span><span class="tag">Copy</span><span class="tag">UX de entrada</span><span class="tag">Node.js</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <div class="eyebrow">Formación y experiencia</div>
+    <h2>Formación certificada</h2>
+    <div class="timeline">
+      <div class="row"><div class="when">Ago 2025 · 40 h</div><div><h3>Creación de videojuegos en Unity 3D — Nivel 6</h3><p>Desarrollo 2D (sprites, físicas, Tilemap), proyecto guiado de plataformas e industria del videojuego. Diploma de aprovechamiento, Fundación Estatal para la Formación en el Empleo.</p></div></div>
+      <div class="row"><div class="when">Ago 2025 · 40 h</div><div><h3>Creación de videojuegos en Unity 3D — Nivel 5</h3><p>Sistemas de partículas, post-procesado, Shader Graph, animación con Animator, proyecto guiado Survival Shooter 3D y Unity para móvil con realidad aumentada.</p></div></div>
+      <div class="row"><div class="when">Ago 2025 · 40 h</div><div><h3>Creación de videojuegos en Unity 3D — Nivel 4</h3><p>Físicas y colisiones, Raycasts, IA con NavMeshAgent, audio y UI Scripting.</p></div></div>
+      <div class="row"><div class="when">Ago 2025 · 30 h</div><div><h3>Creación de videojuegos en Unity 3D — Nivel 3</h3><p>Entorno de Unity, prefabs y assets, terrenos, iluminación, interfaz de usuario (UI) y scripting básico.</p></div></div>
+      <div class="row"><div class="when">Cursos</div><div><h3>Diseño gráfico · Atención al cliente (40 h) · PRL · Ciberseguridad</h3><p>Educación Secundaria Obligatoria (ESO).</p></div></div>
+    </div>
+
+    <div class="sub">Experiencia</div>
+    <div class="timeline">
+      <div class="row"><div class="when">2 años</div><div><h3>Fundador y responsable de comunidad — Unbound</h3><p>Diseño de marca, webs e interfaces; atención a la comunidad y soporte a usuarios en Discord.</p></div></div>
+      <div class="row"><div class="when">Avon</div><div><h3>Asesor de ventas digitales</h3><p>Venta y atención telefónica al cliente.</p></div></div>
+      <div class="row"><div class="when">Museo del Campo Majorero</div><div><h3>Mantenimiento y peón de jardinería</h3><p>Trabajo en equipo y cuidado de un espacio abierto al público.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <div class="eyebrow">Habilidades</div>
+    <h2>Lo que aporto</h2>
+    <div class="skills">
+      <div class="skill"><h3>Diseño</h3><ul><li>Identidad de marca</li><li>Diseño de interfaces (UI)</li><li>Banners y gráfica para redes</li><li>Dirección de arte por época o estilo</li></ul></div>
+      <div class="skill"><h3>Unity (formación)</h3><ul><li>Unity 3D y 2D</li><li>UI dentro del juego</li><li>Partículas y post-procesado</li><li>Shader Graph · Animator</li><li>AR para móvil</li></ul></div>
+      <div class="skill"><h3>Web</h3><ul><li>HTML, CSS y JavaScript</li><li>Diseño responsive</li><li>Publicación en servidor propio</li><li>Cloudflare · dominios</li></ul></div>
+      <div class="skill"><h3>Personas</h3><ul><li>Atención al cliente</li><li>Gestión de comunidades</li><li>Trabajo a partir de feedback</li><li>Español nativo · inglés básico</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="eyebrow">Contacto</div>
+    <h2>¿Hablamos?</h2>
+    <p>Disponible para incorporarme de inmediato. Escríbeme y te respondo en el día.</p>
+    <p class="mail"><a href="mailto:sanchezvieraadrianjesus6@gmail.com">sanchezvieraadrianjesus6@gmail.com</a></p>
+    <p>[TU TELÉFONO]</p>
+  </div>
+</section>
+
+<footer>© 2026 Adrián Jesús Sánchez Viera · Fuerteventura</footer>
+</body>
+</html>
